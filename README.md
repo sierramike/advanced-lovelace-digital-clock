@@ -1,12 +1,12 @@
-# Digital Clock
+# Advanced Digital Clock
 
-A custom digital clock card for Home Assistant
+A fork of the original custom digital clock card for Home Assistant by wassy92x.
 
 [![GitHub Release][releases-shield]][releases]
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
 [![License][license-shield]](LICENSE.md)
 
-![Image of Digital Clock Card](https://github.com/wassy92x/lovelace-digital-clock/blob/master/.images/digital-clock.png?raw=true)
+![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/digital-clock.png?raw=true)
 
 ## Options
 
@@ -38,6 +38,6 @@ timeFormat:
   minute: '2-digit'
 ```
 
-[license-shield]: https://img.shields.io/github/license/wassy92x/lovelace-digital-clock.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/wassy92x/lovelace-digital-clock.svg?style=for-the-badge
-[releases]: https://github.com/wassy92x/lovelace-digital-clock/releases
+[license-shield]: https://img.shields.io/github/license/sierramike/advanced-lovelace-digital-clock.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/sierramike/advanced-lovelace-digital-clock.svg?style=for-the-badge
+[releases]: https://github.com/sierramike/advanced-lovelace-digital-clock/releases
