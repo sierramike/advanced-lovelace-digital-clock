@@ -17,8 +17,8 @@ This version has a lot of new options to customize to be able to style the card 
 | type              | string  | **Required** | `custom:digital-clock`                      |                     |
 | locale            | string  | **Optional** | Locale to use for formatting. For example `de` | locale set in your home assistant profile otherwise your browser locale |
 | timeZone          | string  | **Optional** | Time zone to use. For example `Europe/Berlin` | time zone set in your home assistant profile otherwise your browser time zone |
-| firstLineFormat &#124; timeFormat   | object &#124; string | **Optional** | Format of first line           | { hour: '2-digit', minute: '2-digit' } |
-| secondLineFormat &#124; dateFormat | object  &#124; string  | **Optional** | Format of second line        | { weekday: 'short', day: '2-digit', month: 'short' } |
+| firstLineFormat &#124; timeFormat   | object &#124; string | **Optional** | Format of first line (`none` will disable the line)           | { hour: '2-digit', minute: '2-digit' } |
+| secondLineFormat &#124; dateFormat | object  &#124; string  | **Optional** | Format of second line (`none` will disable the line)          | { weekday: 'short', day: '2-digit', month: 'short' } |
 | padding           | string  | **Optional** | Padding in CSS format for the card          | 8px 0               |
 | background        | string  | **Optional** | Background of the card. Can be any valid CSS color (eg. `red`, `#FF0000`, ...) or an url to an image (eg. `url('http://path.to/image.jpg'`) | |
 | additionalCSS     | string  | **Optional** | Any additional CSS you wish to add to the card for maximum customization (eg. `border:none`) |  |
@@ -99,6 +99,24 @@ secondLineLayout:
   fontWeight: bold
 ```
 
+## Only time, second line disable, colored text, transparent card with no border, right alignment
+
+![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock-sample3.png?raw=true)
+
+```
+type: custom:digital-clock
+padding: 8px 20px
+background: transparent
+additionalCSS: border:none
+firstLineFormat: HH:mm
+secondLineFormat: none
+firstLineLayout:
+  textAlign: right
+  lineHeight: 1em
+  fontSize: 8em
+  fontWeight: 100
+  color: coral
+```
 
 
 [license-shield]: https://img.shields.io/github/license/sierramike/advanced-lovelace-digital-clock.svg?style=for-the-badge
