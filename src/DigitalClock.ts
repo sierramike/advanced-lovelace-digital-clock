@@ -9,7 +9,7 @@ import IDigitalClockConfig from './IDigitalClockConfig';
 
 /* eslint no-console: 0 */
 console.info(
-    `%c  Digital-Clock \n%c  Version ${CARD_VERSION}    `,
+    `%c  Advanced Digital-Clock \n%c  Version ${CARD_VERSION}    `,
     'color: orange; font-weight: bold; background: black',
     'color: white; font-weight: bold; background: dimgray',
 );
@@ -32,7 +32,43 @@ export class DigitalClock extends LitElement {
     private _intervalId?: number;
 
     public setConfig(config: IDigitalClockConfig): void {
-        this._config = {...config};
+        this._config = { ...config, firstLineLayout: { ...config.firstLineLayout }, secondLineLayout: { ...config.secondLineLayout } };
+
+        if (!(this._config.firstLineLayout === undefined)) {
+            if (this._config.firstLineLayout?.textAlign?.toLowerCase() == "left")
+                this._config.firstLineLayout.textAlign = "left";
+            else if (this._config.firstLineLayout?.textAlign?.toLowerCase() == "right")
+                this._config.firstLineLayout.textAlign = "right";
+            else
+                this._config.firstLineLayout.textAlign = "center";
+
+            if (this._config.firstLineLayout?.lineHeight == "" || this._config.firstLineLayout?.lineHeight === undefined)
+                this._config.firstLineLayout.lineHeight = "1em";
+            if (this._config.firstLineLayout?.fontSize == "" || this._config.firstLineLayout?.fontSize === undefined)
+                this._config.firstLineLayout.fontSize = "2.8em";
+            if (this._config.firstLineLayout?.fontWeight == "" || this._config.firstLineLayout?.fontWeight === undefined)
+                this._config.firstLineLayout.fontWeight = "bold";
+        }
+
+        if (!(this._config.secondLineLayout === undefined)) {
+            if (this._config.secondLineLayout?.textAlign?.toLowerCase() == "left")
+                this._config.secondLineLayout.textAlign = "left";
+            else if (this._config.secondLineLayout?.textAlign?.toLowerCase() == "right")
+                this._config.secondLineLayout.textAlign = "right";
+            else
+                this._config.secondLineLayout.textAlign = "center";
+
+            if (this._config.secondLineLayout?.lineHeight == "" || this._config.secondLineLayout?.lineHeight === undefined)
+                this._config.secondLineLayout.lineHeight = "1em";
+            if (this._config.secondLineLayout?.fontSize == "" || this._config.secondLineLayout?.fontSize === undefined)
+                this._config.secondLineLayout.fontSize = "1.6em";
+            if (this._config.secondLineLayout?.fontWeight == "" || this._config.secondLineLayout?.fontWeight === undefined)
+                this._config.secondLineLayout.fontWeight = "bold";
+        }
+
+        if (this._config.padding == "" || this._config.padding === undefined)
+            this._config.padding = "8px 0";
+
         if (this._config.timeFormat)
             this._config.firstLineFormat = this._config.timeFormat;
         if (this._config.dateFormat)
@@ -125,10 +161,30 @@ export class DigitalClock extends LitElement {
     }
 
     protected render(): TemplateResult | void {
+        const cardPadding = `padding:${this._config?.padding};`;
+        const cardBackground = this._config?.background?.trim().length != 0 && this._config?.background != undefined ? `background:${this._config?.background};` : "";
+        const cardCSS = this._config?.additionalCSS?.trim().length != 0 && this._config?.additionalCSS != undefined ? `${this._config?.additionalCSS};` : "";
+
+        const flTextAlign = `text-align:${this._config?.firstLineLayout?.textAlign};`;
+        const flLineHeight = `line-height:${this._config?.firstLineLayout?.lineHeight};`;
+        const flColor = this._config?.firstLineLayout?.color?.trim().length != 0 && this._config?.firstLineLayout?.color != undefined ? `color:${this._config?.firstLineLayout?.color};` : "";
+        const flFontSize = `font-size:${this._config?.firstLineLayout?.fontSize};`;
+        const flFontFamily = this._config?.firstLineLayout?.fontFamily?.trim().length != 0 && this._config?.firstLineLayout?.fontFamily != undefined ? `font-family:${this._config?.firstLineLayout?.fontFamily};` : "";
+        const flFontWeight = `font-weight:${this._config?.firstLineLayout?.fontWeight};`;
+        const flCSS = this._config?.firstLineLayout?.additionalCSS?.trim().length != 0 && this._config?.firstLineLayout?.additionalCSS != undefined ? `${this._config?.firstLineLayout?.additionalCSS};` : "";
+
+        const slTextAlign = `text-align:${this._config?.secondLineLayout?.textAlign};`;
+        const slLineHeight = `line-height:${this._config?.secondLineLayout?.lineHeight};`;
+        const slColor = this._config?.secondLineLayout?.color?.trim().length != 0 && this._config?.secondLineLayout?.color != undefined ? `color:${this._config?.secondLineLayout?.color};` : "";
+        const slFontSize = `font-size:${this._config?.secondLineLayout?.fontSize};`;
+        const slFontFamily = this._config?.secondLineLayout?.fontFamily?.trim().length != 0 && this._config?.secondLineLayout?.fontFamily != undefined ? `font-family:${this._config?.secondLineLayout?.fontFamily};` : "";
+        const slFontWeight = `font-weight:${this._config?.secondLineLayout?.fontWeight};`;
+        const slCSS = this._config?.secondLineLayout?.additionalCSS?.trim().length != 0 && this._config?.secondLineLayout?.additionalCSS != undefined ? `${this._config?.secondLineLayout?.additionalCSS};` : "";
+
         return html`
-            <ha-card>
-                <span class="first-line">${this._firstLine}</span>
-                <span class="second-line">${this._secondLine}</span>
+            <ha-card style="${cardPadding}${cardBackground}${cardCSS}">
+                <span class="first-line" style="${flTextAlign}${flColor}${flLineHeight}${flFontSize}${flFontFamily}${flFontWeight}${flCSS}">${this._firstLine}</span>
+                <span class="second-line" style="${slTextAlign}${slColor}${slLineHeight}${slFontSize}${slFontFamily}${slFontWeight}${slCSS}">${this._secondLine}</span>
             </ha-card>
         `;
     }
@@ -136,24 +192,29 @@ export class DigitalClock extends LitElement {
     static get styles(): CSSResult {
         return css`
           ha-card {
-            text-align: center;
-            font-weight: bold;
-            padding: 8px 0;
           }
 
           ha-card > span {
             display: block;
           }
-
-          .first-line {
-            font-size: 2.8em;
-            line-height: 1em;
-          }
-
-          .second-line {
-            font-size: 1.6em;
-            line-height: 1em;
-          }
         `;
+    }
+
+    static getStubConfig() {
+      return {
+        padding: "8px 0",
+        firstLineLayout: {
+          textAlign: "center",
+          lineHeight: "1em",
+          fontSize: "2.8em",
+          fontWeight: "bold",
+        },
+        secondLineLayout: {
+          textAlign: "center",
+          lineHeight: "1em",
+          fontSize: "1.6em",
+          fontWeight: "bold",
+        },
+      };
     }
 }
