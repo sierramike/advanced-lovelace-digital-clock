@@ -1,4 +1,5 @@
 {
     "name": "Advanced Digital Clock",
+    "filename": "advanced-lovelace-digital-clock.js",
     "render_readme": true
 }
