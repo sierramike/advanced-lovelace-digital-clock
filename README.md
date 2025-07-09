@@ -2,6 +2,8 @@
 
 A fork of the original custom digital clock card for Home Assistant by wassy92x.
 
+This version has a lot of new options to customize to be able to style the card (text alignment, font, color, card color, and any additional custom CSS).
+
 [![GitHub Release][releases-shield]][releases]
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
 [![License][license-shield]](LICENSE.md)
