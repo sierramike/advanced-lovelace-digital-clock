@@ -6,7 +6,7 @@ A fork of the original custom digital clock card for Home Assistant by wassy92x.
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
 [![License][license-shield]](LICENSE.md)
 
-![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/digital-clock.png?raw=true)
+![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock.png?raw=true)
 
 ## Options
 
