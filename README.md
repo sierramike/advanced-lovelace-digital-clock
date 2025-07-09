@@ -2,6 +2,8 @@
 
 A fork of the original custom digital clock card for Home Assistant by wassy92x.
 
+This version has a lot of new options to customize to be able to style the card (text alignment, font, color, card color, and any additional custom CSS).
+
 [![GitHub Release][releases-shield]][releases]
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
 [![License][license-shield]](LICENSE.md)
@@ -46,17 +48,58 @@ Leave any option empty or remove it from configuration and it will use default v
 
 Note: default values keep original card by wassy92x behavior.
 
-# Example
+# Examples
+
+This section shows several card styles and the corresponding yaml code.
+
+## Thin font, left alignment, image background on card, colored text
+
+![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock.png?raw=true)
+
 ```
-type: 'custom:digital-clock'
-dateFormat:
-  weekday: 'long'
-  day: '2-digit'
-  month: 'short'
-timeFormat:
-  hour: '2-digit'
-  minute: '2-digit'
+type: custom:digital-clock
+padding: 4px 20px
+background: url('https://path.to/image.jpg')
+firstLineFormat: HH:mm
+secondLineFormat: cccc d LLLL yyyy
+firstLineLayout:
+  textAlign: left
+  lineHeight: 1.25em
+  fontSize: 2.8em
+  fontWeight: 300
+  color: blue
+secondLineLayout:
+  textAlign: left
+  lineHeight: 1.25em
+  fontSize: 1.6em
+  fontWeight: 300
+  color: green
 ```
+
+## Bold font, big text, transparent card with no border, with seconds, time zone on second line
+
+![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock-sample2.png?raw=true)
+
+```
+type: custom:digital-clock
+padding: 8px 0
+background: transparent
+additionalCSS: border:none
+firstLineFormat: HH:mm:ss
+secondLineFormat: z
+firstLineLayout:
+  textAlign: center
+  lineHeight: 1em
+  fontSize: 4.8em
+  fontWeight: bold
+secondLineLayout:
+  textAlign: center
+  lineHeight: 1em
+  fontSize: 1.6em
+  fontWeight: bold
+```
+
+
 
 [license-shield]: https://img.shields.io/github/license/sierramike/advanced-lovelace-digital-clock.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/sierramike/advanced-lovelace-digital-clock.svg?style=for-the-badge
