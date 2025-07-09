@@ -78,7 +78,7 @@ secondLineLayout:
 
 ## Bold font, big text, transparent card with no border, with seconds, time zone on second line
 
-![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock.png?raw=true)
+![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock-sample2.png?raw=true)
 
 ```
 type: custom:digital-clock
