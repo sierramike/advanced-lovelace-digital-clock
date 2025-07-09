@@ -59,7 +59,7 @@ This section shows several card styles and the corresponding yaml code.
 ```
 type: custom:digital-clock
 padding: 4px 20px
-background: url('https://t4.ftcdn.net/jpg/02/63/39/71/360_F_263397111_ezFxtCBNFaSAiuJOpo2UtWrMJKF6G7ik.jpg')
+background: url('https://path.to/image.jpg')
 firstLineFormat: HH:mm
 secondLineFormat: cccc d LLLL yyyy
 firstLineLayout:
