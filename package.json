@@ -1,5 +1,5 @@
 {
-  "name": "advanced-lovelace-digital-clock",
+  "name": "lovelace-advanced-digital-clock",
   "version": "2.0.0",
   "description": "Home Assistant Advanced Digital Clock",
   "keywords": [
@@ -10,8 +10,9 @@
     "lovelace",
     "custom-cards"
   ],
-  "module": "dist/DigitalClock.js",
-  "repository": "git@github.com:sierramike/advanced-lovelace-digital-clock.git",
+  "source": "src/DigitalClock.ts",
+  "module": "dist/advanced-digital-clock.js",
+  "repository": "git@github.com:sierramike/lovelace-advanced-digital-clock.git",
   "author": "SierraMike <sierramike.fr@gmail.com>",
   "license": "MIT",
   "dependencies": {
