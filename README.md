@@ -17,6 +17,8 @@ A fork of the original custom digital clock card for Home Assistant by wassy92x.
 | timeZone          | string  | **Optional** | Time zone to use. For example `Europe/Berlin` | time zone set in your home assistant profile otherwise your browser time zone |
 | firstLineFormat &#124; timeFormat   | object &#124; string | **Optional** | Format of first line           | { hour: '2-digit', minute: '2-digit' } |
 | secondLineFormat &#124; dateFormat | object  &#124; string  | **Optional** | Format of second line        | { weekday: 'short', day: '2-digit', month: 'short' } |
+| padding           | string  | **Optional** | Padding in CSS format for the card          | 8px 0               |
+| backgroung        | string  | **Optional** | Background of the card. Can be a valid CSS color (`red`, `#FF0000`, ...) or an url to an image (`url('http://path.to/image.jpg'`) | |
 
 If `firstLineFormat` respectively `secondLineFormat` is a string, it can be every format, which is valid in Luxon.
 See: [https://moment.github.io/luxon/#/formatting?id=toformat](https://moment.github.io/luxon/#/formatting?id=toformat)
