@@ -140,12 +140,18 @@ export class DigitalClock extends LitElement {
         let secondLine: string;
 
         if (typeof this._config?.firstLineFormat === 'string')
-            firstLine = dateTime.toFormat(this._config.firstLineFormat);
+            if (this._config.firstLineFormat.toLowerCase().trim() == "none")
+                firstLine = "";
+            else
+                firstLine = dateTime.toFormat(this._config.firstLineFormat);
         else
             firstLine = dateTime.toLocaleString(this._config?.firstLineFormat ?? {hour: '2-digit', minute: '2-digit'});
 
         if (typeof this._config?.secondLineFormat === 'string')
-            secondLine = dateTime.toFormat(this._config.secondLineFormat);
+            if (this._config.secondLineFormat.toLowerCase().trim() == "none")
+                secondLine = "";
+            else
+                secondLine = dateTime.toFormat(this._config.secondLineFormat);
         else
             secondLine = dateTime.toLocaleString(this._config?.secondLineFormat ?? {weekday: 'short', day: '2-digit', month: 'short'});
 
@@ -181,10 +187,13 @@ export class DigitalClock extends LitElement {
         const slFontWeight = `font-weight:${this._config?.secondLineLayout?.fontWeight};`;
         const slCSS = this._config?.secondLineLayout?.additionalCSS?.trim().length != 0 && this._config?.secondLineLayout?.additionalCSS != undefined ? `${this._config?.secondLineLayout?.additionalCSS};` : "";
 
+        const fl = html`<span class="first-line" style="${flTextAlign}${flColor}${flLineHeight}${flFontSize}${flFontFamily}${flFontWeight}${flCSS}">${this._firstLine}</span>`;
+        const sl = html`<span class="second-line" style="${slTextAlign}${slColor}${slLineHeight}${slFontSize}${slFontFamily}${slFontWeight}${slCSS}">${this._secondLine}</span>`;
+
         return html`
             <ha-card style="${cardPadding}${cardBackground}${cardCSS}">
-                <span class="first-line" style="${flTextAlign}${flColor}${flLineHeight}${flFontSize}${flFontFamily}${flFontWeight}${flCSS}">${this._firstLine}</span>
-                <span class="second-line" style="${slTextAlign}${slColor}${slLineHeight}${slFontSize}${slFontFamily}${slFontWeight}${slCSS}">${this._secondLine}</span>
+                ${this._firstLine.length > 0 ? fl : ""}
+                ${this._secondLine.length > 0 ? sl : ""}
             </ha-card>
         `;
     }
