@@ -8,7 +8,7 @@ This version has a lot of new options to customize to be able to style the card 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
 [![License][license-shield]](LICENSE.md)
 
-![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock.png?raw=true)
+![Image of Digital Clock Card](https://github.com/sierramike/lovelace-advanced-digital-clock/blob/master/.images/advanced-digital-clock.png?raw=true)
 
 ## Options
 
@@ -54,7 +54,7 @@ This section shows several card styles and the corresponding yaml code.
 
 ## Thin font, left alignment, image background on card, colored text
 
-![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock.png?raw=true)
+![Image of Digital Clock Card](https://github.com/sierramike/lovelace-advanced-digital-clock/blob/master/.images/advanced-digital-clock.png?raw=true)
 
 ```
 type: custom:digital-clock
@@ -78,7 +78,7 @@ secondLineLayout:
 
 ## Bold font, big text, transparent card with no border, with seconds, time zone on second line
 
-![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock-sample2.png?raw=true)
+![Image of Digital Clock Card](https://github.com/sierramike/lovelace-advanced-digital-clock/blob/master/.images/advanced-digital-clock-sample2.png?raw=true)
 
 ```
 type: custom:digital-clock
@@ -101,7 +101,7 @@ secondLineLayout:
 
 ## Only time, second line disable, colored text, transparent card with no border, right alignment
 
-![Image of Digital Clock Card](https://github.com/sierramike/advanced-lovelace-digital-clock/blob/master/.images/advanced-digital-clock-sample3.png?raw=true)
+![Image of Digital Clock Card](https://github.com/sierramike/lovelace-advanced-digital-clock/blob/master/.images/advanced-digital-clock-sample3.png?raw=true)
 
 ```
 type: custom:digital-clock
@@ -119,6 +119,6 @@ firstLineLayout:
 ```
 
 
-[license-shield]: https://img.shields.io/github/license/sierramike/advanced-lovelace-digital-clock.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/sierramike/advanced-lovelace-digital-clock.svg?style=for-the-badge
-[releases]: https://github.com/sierramike/advanced-lovelace-digital-clock/releases
+[license-shield]: https://img.shields.io/github/license/sierramike/lovelace-advanced-digital-clock.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/sierramike/lovelace-advanced-digital-clock.svg?style=for-the-badge
+[releases]: https://github.com/sierramike/lovelace-advanced-digital-clock/releases
